@@ -40,3 +40,9 @@ ENV PORT=8080
 # Use our custom entrypoint script first
 COPY deploy-container/entrypoint.sh /usr/bin/deploy-container-entrypoint.sh
 ENTRYPOINT ["/usr/bin/deploy-container-entrypoint.sh"]
+
+FROM codercom/code-server:latest
+
+USER root
+RUN sudo apt-get update && sudo apt-get -y install python3 python3-pip
+
